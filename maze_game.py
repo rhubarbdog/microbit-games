@@ -1,7 +1,7 @@
 # Maze Game
 # ---------
 # Author          : Phil Hall
-#                   https://d.github.com/rhubarbdog
+#                   https://github.com/rhubarbdog
 # First Published : April 2019
 
 from microbit import *
@@ -11,11 +11,11 @@ MAZE = [ "wwwwwwwwwwwwwwwwwwwwwwwww" ,
          "w        w              w" ,
          "w   wwwwwwwwwwww   wwwwww" ,
          "w   w  w       w   w    w" ,
+         "w   w          w   w    w" ,
+         "w   w      w   w   w    w" ,
          "w   w  w   w   w   w    w" ,
-         "w   w      w   w   w    w" ,
-         "w   w      w   w   w    w" ,
          "w   wwww   w   w   w    w" ,
-         "w      w   w   w   w    w" ,
+         "w      w   w       w    w" ,
          "w   w  w   w       w    w" ,
          "w   wwww   wwwwwwwww    w" ,
          "w                       w" ,
