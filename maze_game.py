@@ -1,12 +1,10 @@
 # Maze Game
 # ---------
 # Author          : Phil Hall
-#                    www.github.com/rhubarbdog
+#                   https://d.github.com/rhubarbdog
 # First Published : April 2019
 
 from microbit import *
-import random
-import time
 
 MAZE = [ "wwwwwwwwwwwwwwwwwwwwwwwww" ,
          "w        w              w" ,
@@ -30,25 +28,13 @@ DISPLAY = { "w" : 9 ,
 max_x=len(MAZE[0])
 max_y=len(MAZE)
 SCREEN=5
-JOY_TOLLERANCE=400
+JOY_TOLLERANCE=250
 
-def rand_location():
-    while True:
-        x = random.randrange(max_x)
-        y = random.randrange(max_y)
 
-        if MAZE[y][x] == ' ':
-            return (x, y)
-
-player_x, player_y = rand_location()
-while True:
-    exit_x, exit_y = rand_location()
-
-    if exit_x != player_x or exit_y != player_y:
-        break
+player_x, player_y = (1, 12)
+exit_x, exit_y = (20, 2)
 
 loop = 0
-begin = time.ticks_ms()
 
 while True:
     view_x = player_x - 2
@@ -121,7 +107,6 @@ while True:
     loop += 1
     loop %= 20
 
-elapse = time.ticks_diff(time.ticks_ms(), begin)
 display.clear()
 sleep(500)
-display.scroll('Well done. %d.%ds' % (elapse // 1000, ((elapse // 100) % 10)))
+display.scroll('Well done.')
