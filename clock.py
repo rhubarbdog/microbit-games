@@ -38,7 +38,7 @@ class Clock():
             if not self.future is None:
                 overrun = time.ticks_diff(self.future, current)
                 if overrun <= 0:
-                    while overrun < -1000:
+                    while overrun <= -1000:
                         overrun += 1000
                         self.time_ += 1
                     self.future = time.ticks_add(current,(1000 + overrun))
