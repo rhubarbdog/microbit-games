@@ -25,10 +25,10 @@ MAZE = [ "wwwwwwwwwwwwwwwwwwwwwwwww" ,
 DISPLAY = { "w" : 9 , 
             " " : 0 }
 
-max_x=len(MAZE[0])
-max_y=len(MAZE)
-SCREEN=5
-JOY_TOLLERANCE=250
+max_x = len(MAZE[0])
+max_y = len(MAZE)
+SCREEN = 5
+JOY_TOLLERANCE = 250
 
 
 player_x, player_y = (1, 12)
@@ -71,22 +71,22 @@ while True:
     if player_x == exit_x and player_y == exit_y:
         break
     
-    joy_x=accelerometer.get_x()
-    joy_y=accelerometer.get_y()
+    joy_x = accelerometer.get_x()
+    joy_y = accelerometer.get_y()
 
-    if joy_y<-JOY_TOLLERANCE:
-        delta_y=-1
-    elif joy_y>JOY_TOLLERANCE:
-        delta_y=1
+    if joy_y < -JOY_TOLLERANCE:
+        delta_y= -1
+    elif joy_y > JOY_TOLLERANCE:
+        delta_y= 1
     else:
-        delta_y=0
+        delta_y= 0
 
-    if joy_x<-JOY_TOLLERANCE:
-        delta_x=-1
-    elif joy_x>JOY_TOLLERANCE:
-        delta_x=1
+    if joy_x < -JOY_TOLLERANCE:
+        delta_x= -1
+    elif joy_x > JOY_TOLLERANCE:
+        delta_x= 1
     else:
-        delta_x=0
+        delta_x= 0
 
     if delta_x != 0 and delta_y != 0:
         if abs(joy_x) > abs(joy_y):
@@ -107,6 +107,6 @@ while True:
     loop += 1
     loop %= 20
 
-display.clear()
 sleep(500)
+display.clear()
 display.scroll('Well done.')
