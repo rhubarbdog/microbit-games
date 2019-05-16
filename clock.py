@@ -1,3 +1,10 @@
+# A Real Time Clock
+# -----------------
+# Author          : Phil Hall
+#                   https://github.com/rhubarbdog
+# License         : Creative Commons 4.0
+# First Published : May 2019
+
 import time
 
 class Clock():
@@ -48,6 +55,7 @@ if __name__ == '__main__':
     timer = Clock()
 
     timer.start()
-    time.sleep(4)
+    timer.sleep(1000)
+    microbit.sleep(3000)
     timer.sleep(0)
     microbit.display.scroll(str(timer.time()))

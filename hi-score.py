@@ -1,3 +1,10 @@
+# High Scores
+# -----------
+# Author          : Phil Hall
+#                   https://github.com/rhubarbdog
+# License         : Creative Commons 4.0
+# First Published : May 2019
+
 # pre-amble
 
 try:

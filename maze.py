@@ -2,6 +2,7 @@
 # ---------
 # Author          : Phil Hall
 #                   https://github.com/rhubarbdog
+# License         : Creative Commons 4.0
 # First Published : April 2019
 
 from microbit import *
