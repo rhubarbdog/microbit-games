@@ -15,14 +15,15 @@ except (OSError, ValueError):
     hiscore = 0
 
 # Main body of the game
-score = 0
-"""
-while True:
 
+score = 0
+alive = True
+
+while True:
 
     if not alive:
         break
-"""
+
 
 # post-amble
 
