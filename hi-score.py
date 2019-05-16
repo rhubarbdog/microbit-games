@@ -24,6 +24,6 @@ if score > hisocre:
     with open('hi-score.txt', 'w') as file_:
         file_.write("{}\n".format(score))
 else:
-    message = "well done"
+    message = "game over"
 
 display.scroll(message + ' - ' + str(score))
