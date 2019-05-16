@@ -66,7 +66,7 @@ if __name__ == '__main__':
     # timer.sleep(0) to update the clock witout pausing
     timer.reset()
     timer.start()
-    microbit.sleep(3000)
+    microbit.sleep(3100)
     timer.sleep(0) 
     microbit.display.scroll(str(timer.time()))
     
