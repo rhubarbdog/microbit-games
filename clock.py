@@ -34,7 +34,7 @@ class Clock():
         current = time.ticks_ms()
         elapsed = time.ticks_add(current, duration)
         once = duration == 0
-        while once or time.ticks_diff(elapsed, current) > 0:
+        while once or time.ticks_diff(elapsed, current) >= 0:
             if not self.future is None:
                 overrun = time.ticks_diff(self.future, current)
                 if overrun <= 0:
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     # timer.sleep(0) to update the clock witout pausing
     timer.reset()
     timer.start()
-    microbit.sleep(3100)
+    microbit.sleep(3000)
     timer.sleep(0) 
     microbit.display.scroll(str(timer.time()))
     
