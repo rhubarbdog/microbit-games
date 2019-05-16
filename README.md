@@ -18,4 +18,6 @@ A psudeo game implementing a high score record
 . clock.py
 
 A real time clock to keep track of how long you've been playing on your
-micro:bit
+micro:bit.  Use method `.sleep()` to pause your program and update the elapsed
+number of seconds, if your program has no pauses add the line `.sleep(0)` at
+regular intervals through the main loop.
