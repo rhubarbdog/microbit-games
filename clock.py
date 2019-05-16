@@ -23,20 +23,18 @@ class Clock():
         self.furure = None
 
     def time(self):
-        self.sleep(0)
         return self.time_
 
     def reset(self):
-        self.time = 0
+        self.time_ = 0
         if self.running:
             self.start()
 
     def sleep(self, duration):
         current = time.ticks_ms()
         elapsed = time.ticks_add(current, duration)
-        once = True
+        once = duration == 0
         while once or time.ticks_diff(elapsed, current) > 0:
-            once = False
             if not self.future is None:
                 overrun = time.ticks_diff(self.future, current)
                 if overrun <= 0:
@@ -45,8 +43,10 @@ class Clock():
                         self.time_ += 1
                     self.future = time.ticks_add(current,(1000 + overrun))
                     self.time_ += 1
-
-            time.sleep_ms(10)
+            if once:
+                once = False
+            else:
+                time.sleep_ms(10)
             current = time.ticks_ms()
 
 
@@ -54,8 +54,19 @@ if __name__ == '__main__':
     import microbit
     timer = Clock()
 
+    # make multiple smal pauses but keep track of the time
     timer.start()
-    timer.sleep(1000)
-    microbit.sleep(3000)
-    timer.sleep(0)
+    for _ in range(10):
+        timer.sleep(100)
+    timer.stop()
     microbit.display.scroll(str(timer.time()))
+
+    # or if your microbit is running flatout as simulated by
+    # thie microbit.sleep(3000) make regular calls to
+    # timer.sleep(0) to update the clock witout pausing
+    timer.reset()
+    timer.start()
+    microbit.sleep(3000)
+    timer.sleep(0) 
+    microbit.display.scroll(str(timer.time()))
+    
