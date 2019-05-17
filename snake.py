@@ -2,7 +2,6 @@
 # -----
 # Author          : Phil Hall
 #                   https://github.com/rhubarbdog
-
 # License         : Creative Commons 4.0
 # First Published : May 2019
 
@@ -25,14 +24,18 @@ score = 0
 
 while True:
     display.clear()
+    # draw the tail
     for t in tail:
         x,y = t
         display.set_pixel(x, y, 2)
+    # Add food if there is some
     if (not food_x is None) and (not food_y is None):
         display.set_pixel(food_x, food_y, 9)
+    # finally draw the head
     display.set_pixel(head_x, head_y, 5)
     sleep(300)
 
+    # Tilt the microbit to steer snake, but keep moving
     save_dx = dx
     save_dy = dy
     joy_x = accelerometer.get_x()
